@@ -1,13 +1,13 @@
 {
-  "name": "nestjs-rabbitmq",
-  "version": "1.0.0",
+  "name": "@rx30i/nestjs-rabbitmq",
+  "version": "0.1.0",
   "description": "",
   "author": "RX30I",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "main": "dist/index.js",
   "repository": {
-    "url": "https://github.com/rx30i/nestjs-server"
+    "url": "https://github.com/rx30i/nestjs-rabbitmq"
   },
   "scripts": {
     "prebuild": "rimraf dist",
@@ -24,32 +24,31 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
-  "dependencies": {
-    "amqplib": "^0.8.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "@nestjs/common": "^8.0.0"
   },
   "devDependencies": {
     "@nestjs/common": "^8.0.0",
     "@nestjs/testing": "^8.0.0",
-    "@types/amqplib": "^0.8.1",
+    "@types/amqplib": "^0.8.2",
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.0.0",
+    "@types/node": "^16.7.3",
     "@types/supertest": "^2.0.11",
-    "@typescript-eslint/eslint-plugin": "^4.28.2",
-    "@typescript-eslint/parser": "^4.28.2",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "amqplib": "^0.8.0",
     "eslint": "^7.30.0",
     "eslint-plugin-adonis": "^1.3.3",
     "jest": "27.0.6",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
-    "supertest": "^6.1.3",
-    "ts-jest": "^27.0.3",
-    "ts-node": "^10.0.0",
-    "tsconfig-paths": "^3.10.1",
-    "typescript": "^4.3.5"
+    "supertest": "^6.1.6",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.2"
   },
   "jest": {
     "moduleFileExtensions": [

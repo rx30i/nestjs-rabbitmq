@@ -15,7 +15,7 @@ interface IBind {
 }
 
 export interface IRabbitMQModuleConfig {
-  tratarErro?: LoggerService,
+  loggerService?: LoggerService,
   conexao: {
     dns: string,
   },

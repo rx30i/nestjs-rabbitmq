@@ -1,7 +1,7 @@
-import { RabbitMqIniciarService, RabbitMqService} from './services';
 import { Module, DynamicModule, Provider } from '@nestjs/common';
 import { IRabbitMQModuleAsyncConfig } from './interfaces';
 import { RABBITMQ_CONFIG } from './constants';
+import { RabbitMqService} from './services';
 
 @Module({})
 export class RabbitMQModule {
@@ -12,7 +12,6 @@ export class RabbitMQModule {
       imports  : config.imports,
       providers: [
         RabbitMQModule.configProvider(config),
-        RabbitMqIniciarService,
         RabbitMqService,
       ],
       exports: [RabbitMqService],
