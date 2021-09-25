@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "",
   "author": "RX30I",
-  "private": true,
   "license": "MIT",
   "main": "dist/index.js",
   "repository": {
@@ -49,6 +48,9 @@
     "ts-node": "^10.2.1",
     "tsconfig-paths": "^3.11.0",
     "typescript": "^4.4.2"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "jest": {
     "moduleFileExtensions": [

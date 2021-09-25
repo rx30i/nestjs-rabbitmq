@@ -109,9 +109,9 @@ export class RabbitMqService {
       );
     });
 
-    this.channel.on('error', (erro: any, { name }) => {
+    this.channel.on('error', (erro: any) => {
       this.logger.error(
-        `Falha ao configurar o canal RabbitMQ ${name}`,
+        'Falha ao configurar o canal RabbitMQ',
         erro.message
       );
     });
