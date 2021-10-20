@@ -50,13 +50,8 @@ export class RabbitMqService {
       this.conexaoRabbitMqEncerrada();
       this.desconectadoDoCanal();
     } catch (erro) {
-      this.conexao = undefined;
-      this.channel = undefined;
-
-      this.logger.error(
-        'Erro ao iniciar o modulo RabbitMQModule',
-        erro.message
-      );
+      this.logger.error(erro.message, erro.stack);
+      this.fecharConexao();
     }
   }
 
@@ -86,34 +81,37 @@ export class RabbitMqService {
     }
   }
 
-  private conexaoRabbitMqEncerrada () {
+  private conexaoRabbitMqEncerrada (): void {
     this.conexao.on('close', (erro) => {
       this.logger.error('A conexão com o RabbitMQ foi fechada.', erro?.message);
-
-      this.conexao = undefined;
-      this.channel = undefined;
+      this.fecharConexao();
     });
   }
 
   private desconectadoDoCanal () {
-    this.channel.on('close', (erro) =>
-      this.logger.error('Canal RabbitMQ fechado com sucesso', erro?.message)
-    );
+    this.channel.on('close', (erro) => {
+      this.logger.error('Canal RabbitMQ fechado com sucesso', erro?.message);
+      this.fecharConexao();
+    });
   }
 
-  private erros () {
+  private erros (): void {
     this.conexao.on('error', (erro: any) => {
-      this.logger.error(
-        'Falha na conexão com o RabbitMQ',
-        erro.message
-      );
+      this.logger.error(erro.message, erro.stack);
+      this.fecharConexao();
     });
 
     this.channel.on('error', (erro: any) => {
-      this.logger.error(
-        'Falha ao configurar o canal RabbitMQ',
-        erro.message
-      );
+      this.logger.error(erro.message, erro.stack);
+      this.fecharConexao();
     });
+  }
+
+  private fecharConexao (): void {
+    this.channel?.close();
+    this.conexao?.close();
+
+    this.conexao = undefined;
+    this.channel = undefined;
   }
 }
