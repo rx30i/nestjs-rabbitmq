@@ -1,4 +1,0 @@
-https://dev.to/nestjs/publishing-nestjs-packages-with-npm-21fm
-https://blog.entrostat.com/packaging-nestjs-modules-for-npm-installs/
-https://dev.to/nestjs/advanced-nestjs-how-to-build-completely-dynamic-nestjs-modules-1370
-https://cameronnokes.com/blog/the-30-second-guide-to-publishing-a-typescript-package-to-npm/
